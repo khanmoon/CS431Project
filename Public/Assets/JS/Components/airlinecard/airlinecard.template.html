@@ -1,0 +1,64 @@
+
+<form ng-submit="submit()">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Departure Location</label>
+      <input type="text" class="form-control" ng-model="departureloc" placeholder="Departure Location">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Destination</label>
+      <input type="text" class="form-control" ng-model="destination" placeholder="Destination">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Departure Date</label>
+      <input type="date" class="form-control" ng-model="departuredate">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Find Flights</button>
+</form>
+<br>
+<!-- <div class="row">
+  <div class="col-lg-6" ng-repeat="air in airline">
+    <h2>{{air.Airline}}</h2>
+    <p>Price:{{air.Price}}</p>
+    <p>Dept.: {{air.Dep_DT | date:'medium'}}</p>
+    <p>Arr.: {{air.Arr_DT | date:'medium'}}</p>
+    <nav aria-label="breadcrumb" role="navigation">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item">{{air.Dep_LOC}}</li>
+	    <li class="breadcrumb-item">{{air.Destination}}</li>
+	  </ol>
+	</nav>
+	<hr />
+	<p>Total Duration: {{air.Autoduration}}</p>
+    <p><a class="btn btn-primary" href="#" role="button">Book &raquo;</a></p>
+  </div>
+</div>
+
+ -->
+ <h1 ng-if="flag">No flights Found</h1>
+<div class="row">
+  <h1>{{text | date:'medium'}}</h1>
+  <div class="col-lg-4" ng-repeat="air in airline">
+	<div class="card bg-light mb-3" style="max-width: 20rem;">
+  	<div class="card-header"><h2>{{air.Airline}}</h2></div>
+  	<div class="card-body">
+    <p>Price:{{air.Price}}</p>
+    <p>Dept.: {{air.Dep_DT | date:'medium'}}</p>
+    <p>Arr.: {{air.Arr_DT | date:'medium'}}</p>
+    <nav aria-label="breadcrumb" role="navigation">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item">{{air.Dep_LOC}}</li>
+	    <li class="breadcrumb-item">{{air.Destination}}</li>
+	  </ol>
+	</nav>
+	<hr />
+	<p>Total Duration: {{air.Duration}}</p>
+    <!-- <p><a  ng-click="book(air.FID)" href="#" role="button"></a></p> -->
+    <p><a class="btn btn-primary" ui-sref="form({ flightId: air.FID })" role="button">Book &raquo;</a></p>
+  </div>
+</div>
+</div>
+</div>

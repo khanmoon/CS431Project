@@ -1,0 +1,27 @@
+<form ng-submit="submit()">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label>CNIC</label>
+      <input type="text" class="form-control" ng-model="CNIC">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Check Bookings</button>
+</form>
+<br>
+<div class="card text-center" ng-repeat="flight in flights" ng-hide="flights[0].error">
+  <div class="card-header">
+    Destination: {{flight.Destination}}
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Time: {{flight.Dep_DT | date:'medium'}}</h4>
+    <p class="card-text">Airline: {{flight.Airline}}</p>
+    <p class="card-text">Departure: {{flight.Dep_LOC}}</p>
+    <a href="#" class="btn btn-primary">Cancel</a>
+  </div>
+  <div class="card-footer text-muted">
+    
+  </div>
+</div>
+<h1>{{flights[0].error}}</h1>
+
+<!-- <button type="button" class="btn btn-info btn-lg" ><a ui-sref="form" ui-sref-active="active">Bookings</a></button> -->
